@@ -21,13 +21,6 @@ client = MongoClient('mongodb+srv://store:food2022@cluster0.himuf.mongodb.net/?r
 db = client.momockgee
 
 
-doc = {
-    'user_id': "nanana",
-    'user_nick': "nana",
-    'user_pw': "abcdefgh"
-}
-
-db.user.insert_one(doc)
 
 @app.route('/')
 def home():

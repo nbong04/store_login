@@ -101,10 +101,9 @@
 
         function sign_up() {
             let username = $("#input-username").val()
-            let nickname = $("#input-nickname").val()
             let password = $("#input-password").val()
             let password2 = $("#input-password2").val()
-            console.log(username, nickname, password, password2)
+            console.log(username, password, password2)
 
 
             if ($("#help-id").hasClass("is-danger")) {
@@ -162,7 +161,6 @@
             $("#help-id").toggleClass("is-hidden")
             $("#help-password").toggleClass("is-hidden")
             $("#help-password2").toggleClass("is-hidden")
-            $("#input-nickname").toggleClass("is-hidden")
         }
 
         function is_nickname(asValue) {
@@ -239,11 +237,6 @@
                         <p id="help-id-login" class="help is-danger"></p>
                         <div class="field">
 
-                            <div class="nickname">
-                                <label class="label"></label>
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="닉네임">
-                                </div>
 
                             </div>
 
