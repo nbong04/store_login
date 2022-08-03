@@ -5,7 +5,10 @@ import hashlib
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
+import pymongo
+import certifi
 
+ca = certifi.where()
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -14,15 +17,22 @@ app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 SECRET_KEY = 'SPARTA'
 
 
-client = MongoClient('mongodb://3.34.178.75/', 27017, username="store", password="food2022")
+client = MongoClient('mongodb+srv://store:food2022@cluster0.himuf.mongodb.net/?retryWrites=true&w=majority')
 db = client.momockgee
 
 
+doc = {
+    'user_id': "nanana",
+    'user_nick': "nana",
+    'user_pw': "abcdefgh"
+}
 
+db.user.insert_one(doc)
 
 @app.route('/')
 def home():
     token_receive = request.cookies.get('mytoken')
+
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 
